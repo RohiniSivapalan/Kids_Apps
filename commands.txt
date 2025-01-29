@@ -1,0 +1,126 @@
+mysql> create database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create database app;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> create table signin(EMAILID varchar (25));
+ERROR 1046 (3D000): No database selected
+mysql> use app;
+Database changed
+mysql>  create table signin(EMAILID varchar (25));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc signin;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| EMAILID | varchar(25) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+1 row in set (0.01 sec)
+
+mysql>  create table signin(NAME varchar (20),AGE varchar (3),EMAILID varchar (25));
+ERROR 1050 (42S01): Table 'signin' already exists
+mysql>   create table signup(NAME varchar (20),AGE varchar (3),EMAILID varchar (25));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc signin;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| EMAILID | varchar(25) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> desc signup;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| NAME    | varchar(20) | YES  |     | NULL    |       |
+| AGE     | varchar(3)  | YES  |     | NULL    |       |
+| EMAILID | varchar(25) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> desc signin;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| EMAILID | varchar(25) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into signup EMAILID VALUES (sssbatcha@gmail.com, );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'EMAILID VALUES (sssbatcha@gmail.com, )' at line 1
+mysql> ^C
+mysql> insert into signup EMAILID VALUES (sss@batcha);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'EMAILID VALUES (sss@batcha)' at line 1
+mysql> insert into signup EMAILID VALUES ("sss@batcha");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'EMAILID VALUES ("sss@batcha")' at line 1
+mysql> ^C
+mysql> insert into signup EMAILID VALUES ("sss");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'EMAILID VALUES ("sss")' at line 1
+mysql> ^C
+mysql> insert into signup (EMAILID) VALUES ("SSS");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from signup;
++------+------+---------+
+| NAME | AGE  | EMAILID |
++------+------+---------+
+| NULL | NULL | SSS     |
++------+------+---------+
+1 row in set (0.00 sec)
+
+mysql> desc signup;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| NAME    | varchar(20) | YES  |     | NULL    |       |
+| AGE     | varchar(3)  | YES  |     | NULL    |       |
+| EMAILID | varchar(25) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select database();
++------------+
+| database() |
++------------+
+| app        |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select * from signup;
++------+------+---------+
+| NAME | AGE  | EMAILID |
++------+------+---------+
+| NULL | NULL | SSS     |
++------+------+---------+
+1 row in set (0.00 sec)
+
+mysql> update signup set name='AAA' ;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update signup set age='18' ;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from signup;
++------+------+---------+
+| NAME | AGE  | EMAILID |
++------+------+---------+
+| AAA  | 18   | SSS     |
++------+------+---------+
+1 row in set (0.00 sec)
+
+mysql> desc signup;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| NAME    | varchar(20) | YES  |     | NULL    |       |
+| AGE     | varchar(3)  | YES  |     | NULL    |       |
+| EMAILID | varchar(25) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> Terminal close -- exit!
